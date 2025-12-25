@@ -20,7 +20,7 @@ This project creates an autonomous robotic agent that goes beyond navigation to 
 ## Environment Setup
 1. **Clone this repository:**
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/079bme047uday/Semantic_Nav2_Turtlebot3
    cd Semantic_Nav2_Turtlebot3
    ```
 2. **Create a Python virtual environment:**
@@ -71,7 +71,7 @@ This project creates an autonomous robotic agent that goes beyond navigation to 
     ```bash
      ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=maps/my_map.yaml
      ```
-  - For python_script integrating LLM: 
+  - For python_script integrating LLM (ensure you are inside your created environment): 
     ```bash
      python test_robot.py
      ```
@@ -88,7 +88,7 @@ This project creates an autonomous robotic agent that goes beyond navigation to 
 ## References
 - [TurtleBot3 e-Manual](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
 - [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/)
-
+- [Nasa-JPL-ROSA-Framework](https://github.com/nasa-jpl/rosa)
 ---
 
 For questions or contributions, please open an issue or pull request.
