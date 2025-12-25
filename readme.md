@@ -1,7 +1,7 @@
 # Semantic Navigation for TurtleBot3 with LLM Integration
 
 ## Project Overview
-This project creates an autonomous robotic agent that goes beyond navigation to understand its environment within the ROS 2 and Gazebo ecosystem. By combining geometric reasoning, contextual awareness, and LLM-based vision, the robot interprets objects based on their shape, location, and relationships rather than relying on fragile visual features. Natural language commands guide purposeful exploration, while panoramic perception and semantic reasoning allow the robot to recognize what objects are and why they belong in a space—demonstrating true environmental understanding, not just movement through coordinates.
+This project creates an autonomous robotic agent that goes beyond navigation to understand its environment within the ROS 2 and Gazebo ecosystem. By combining geometric reasoning, contextual awareness, and LLM-based vision, the robot interprets objects based on their shape, location, and relationships rather than relying on fragile visual features. Natural language commands guide purposeful exploration, while panoramic perception and semantic reasoning allow the robot to recognize what objects are and why they belong in a space, demonstrating true environmental understanding, not just movement through coordinates.
 
 ## Features
 - Natural language command interpretation for TurtleBot3
