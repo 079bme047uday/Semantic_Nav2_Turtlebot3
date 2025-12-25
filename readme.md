@@ -1,7 +1,9 @@
 # Semantic Navigation for TurtleBot3 with LLM Integration
 
 ## Project Overview
-This project enables advanced semantic navigation for the TurtleBot3 robot using Large Language Models (LLMs) and ROS 2. The system allows the robot to interpret high-level, natural language commands and autonomously navigate in simulation or real-world environments. It leverages Azure OpenAI for LLM capabilities and integrates with the TurtleBot3 ROS 2 ecosystem for robot control and perception.
+This autonomous robotic agent is designed to bridge the significant "Sim-to-Real" perception gap within the ROS 2 and Gazebo ecosystem by integrating high-level Large Language Model (LLM) reasoning with low-level robot control. Traditional computer vision systems often struggle in simulated environments because the low-fidelity, untextured geometric models do not provide the rich visual features required by standard pattern-matching algorithms; this project solves this by implementing a unique Geometric Reasoning pipeline that uses semantic logic to identify objects based on their shape, room context, and spatial relationships. The system operates by using the ROSA framework to orchestrate tasks, where a user’s natural language command triggers the Nav2 stack to move the robot to specific room coordinates, followed by a custom-calibrated 360-degree panoramic scan. To overcome simulation-specific hurdles such as flat lighting and physics-induced "sim-lag," the agent utilizes an OpenCV-based CLAHE (Contrast Limited Adaptive Histogram Equalization) filter to sharpen geometric edges.
+
+Furthermore, the navigation logic includes a time-synchronized rotation engine—calibrated at 22.67 seconds for a full rotation—which ensures precise 90-degree increments (5.67 seconds each) regardless of the simulation's Real-Time Factor or CPU load. By offloading the final object identification to an Azure OpenAI GPT-4o vision transformer, the robot can perform "Chain-of-Thought" analysis—deducing, for example, that a brown rectangular prism in a kitchen is a cabinet rather than a bookshelf—thereby demonstrating a robust, context-aware approach to autonomous exploration that moves beyond simple coordinate-based navigation toward true semantic environmental understanding.
 
 ## Features
 - Natural language command interpretation for TurtleBot3
@@ -51,7 +53,7 @@ This project enables advanced semantic navigation for the TurtleBot3 robot using
      ```
    - Set TurtleBot3 model:
      ```bash
-     echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
+     echo "export TURTLEBOT3_MODEL=waffle" >> ~/.bashrc
      source ~/.bashrc
      ```
 
@@ -60,6 +62,22 @@ This project enables advanced semantic navigation for the TurtleBot3 robot using
   - For semantic navigation: `python llm_robot.py`
   - For robot calibration: `python test_spin.py`
   - For robot navigation test: `python test_robot.py`
+
+## Running the actual program
+- **Run navigation and turtlebot3_launch.py file:**
+  - For turtlebot:
+    ```bash
+     ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+     ```
+  - For visualization in rviz (the maps/my_map.yaml is the saved map with directory, it can be different in your case, depends on where you save your map): 
+    ```bash
+     ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=maps/my_map.yaml
+     ```
+  - For python_script integrating LLM: 
+    ```bash
+     python test_robot.py
+     ```
+
 
 ## Notes
 - Ensure your ROS 2 environment is sourced before running scripts:
