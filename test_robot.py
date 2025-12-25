@@ -105,7 +105,10 @@ bot = RobotHardware()
 
 @tool
 def navigate_to_room(room_name: str) -> str:
-    """Navigates to specific rooms using map coordinates."""
+    """
+    Navigates the robot to a specific room. 
+    Available rooms: kitchen, living_room, bedroom, kitchen_store, study_room, dining_room.
+    """
     coords = {
         "kitchen": (6.9, 1.38),
         "living_room": (-1.71, 1.9),
@@ -115,9 +118,11 @@ def navigate_to_room(room_name: str) -> str:
         "dining_room": (7.68, -2.29)
     }
     
-    name = room_name.lower().strip()
+    name = room_name.lower().strip().replace(" ", "_")
+    
     if name not in coords:
-        return f"Error: Room {room_name} is not defined in the map."
+        valid_rooms = ", ".join(coords.keys())
+        return f"Error: '{room_name}' not found. Please choose from: {valid_rooms}"
     
     x, y = coords[name]
     goal = NavigateToPose.Goal()
