@@ -10,7 +10,7 @@ This project creates an autonomous robotic agent that goes beyond navigation to 
 - Example scripts for robot navigation and calibration
 
 ## Prerequisites
-- **Operating System:** Linux (recommended: Ubuntu 20.04/22.04)
+- **Operating System:** Linux (recommended: Ubuntu 24.04)
 - **ROS 2:** Jazzy Distribution
 - **TurtleBot3 Packages:**
   - `turtlebot3`, `turtlebot3_msgs`, `turtlebot3_navigation2`, etc.
@@ -44,10 +44,10 @@ This project creates an autonomous robotic agent that goes beyond navigation to 
 
 5. **Install TurtleBot3 and ROS 2 packages:**
    - Follow the [official TurtleBot3 ROS 2 installation guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/) for your ROS 2 distro.
-   - Example (for Ubuntu/ROS 2 Humble):
+   - Example (for Ubuntu/ROS 2 Jazzy):
      ```bash
      sudo apt update
-     sudo apt install ros-humble-turtlebot3* ros-humble-nav2-bringup
+     sudo apt install ros-jazzy-turtlebot3* ros-jazzy-nav2-bringup
      ```
    - Set TurtleBot3 model:
      ```bash
@@ -80,7 +80,7 @@ This project creates an autonomous robotic agent that goes beyond navigation to 
 ## Notes
 - Ensure your ROS 2 environment is sourced before running scripts:
   ```bash
-  source /opt/ros/<distro>/setup.bash
+  source /opt/ros/jazzy/setup.bash
   ```
 - The `.env` file must be present for LLM features to work.
 - This project is designed for TurtleBot3 in both simulation and real hardware.
