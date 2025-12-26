@@ -3,6 +3,7 @@ import os
 # your existing import
 from langchain_openai import AzureChatOpenAI
 
+#langchain is used to import AzureChatOpenAI
 # load env and initialize LLM (you already had this)
 load_dotenv()
 

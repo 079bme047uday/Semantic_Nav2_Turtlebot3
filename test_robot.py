@@ -87,7 +87,7 @@ class RobotHardware(Node):
             msg.header.stamp = self.get_clock().now().to_msg()
             self.cmd_vel_pub.publish(msg)
             rclpy.spin_once(self, timeout_sec=0.01)
-            time.sleep(0.02) # 50Hz for stability
+            time.sleep(0.02) # 50Hz for stability of the rotation
             
         # Hard stop
         stop_msg = TwistStamped()

@@ -1,4 +1,4 @@
-# to chekc if navigation works before integrating LLM, to ensure right topic is being published for navigation goals
+# to check if navigation works before integrating LLM, to ensure right topic is being published for navigation goals
 
 from test_robot import send_nav_goal
 
